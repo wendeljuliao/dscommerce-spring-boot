@@ -2,6 +2,7 @@ package com.devsuperior.dscommerce.dto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import com.devsuperior.dscommerce.entities.Category;
 import com.devsuperior.dscommerce.entities.Product;
@@ -74,6 +75,23 @@ public class ProductDTO {
 
 	public List<CategoryDTO> getCategories() {
 		return categories;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ProductDTO other = (ProductDTO) obj;
+		return Objects.equals(id, other.id);
 	}
     
 }
